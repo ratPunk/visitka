@@ -1,1 +1,374 @@
-<h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иличкин Александр - PHP Backend Developer</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Плавная прокрутка */
+        }
+
+        a {
+            color: #9c27b0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Шапка */
+        header {
+            background-color: #212121;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            color: #f4f4f4;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #9c27b0;
+        }
+
+        /* Основной контент */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #9c27b0;
+        }
+
+        /* Фотография */
+        .photo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #9c27b0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Карточки */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #2e2e2e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            flex: 1 1 calc(33.333% - 20px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        /* Проекты */
+        .projects {
+            margin-top: 40px;
+        }
+
+        .project {
+            background-color: #2e2e2e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project h3 {
+            margin-top: 0;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #9c27b0;
+            color: #f4f4f4;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .project a:hover {
+            background-color: #7b1fa2;
+        }
+
+        /* Лесенка проектов */
+        .project:nth-child(odd) {
+            margin-right: 30%;
+        }
+
+        .project:nth-child(even) {
+            margin-left: 30%;
+        }
+
+        /* Отзывы */
+        .reviews {
+            margin-top: 40px;
+        }
+
+        .review {
+            background-color: #2e2e2e;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .review:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .review h3 {
+            margin-top: 0;
+        }
+
+        .review p {
+            margin: 10px 0;
+        }
+
+        .review .author {
+            font-weight: bold;
+            color: #9c27b0;
+        }
+
+        /* Контакты */
+        .contacts {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contacts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contacts ul li {
+            margin: 10px 0;
+        }
+
+        .contacts ul li a {
+            font-weight: bold;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #212121;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #f4f4f4;
+        }
+
+        /* Анимация */
+        .animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav>
+            <a href="#about">Обо мне</a>
+            <a href="#services">Услуги</a>
+            <a href="#projects">Проекты</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+            <a href="resume.html">Резюме</a>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="container">
+
+        <!-- Обо мне -->
+        <section id="about" class="animate">
+            <div class="photo">
+                <img src="data:image/jpeg;base64,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" alt="Иличкин Александр">
+            </div>
+            <h1>Иличкин Александр</h1>
+            <p>PHP Backend Developer</p>
+            <p>Привет! Я занимаюсь разработкой и поддержкой веб-приложений, созданием логики и архитектуры, а также работой с базами данных.</p>
+        </section>
+
+        <!-- Услуги -->
+        <section id="services" class="animate">
+            <h2>Чем я занимаюсь</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Поддержка сайтов</h3>
+                    <p>Обеспечиваю стабильную работу существующих веб-приложений, исправляю ошибки и оптимизирую производительность.</p>
+                </div>
+                <div class="card">
+                    <h3>Создание API</h3>
+                    <p>Разрабатываю RESTful API для интеграции с другими сервисами и мобильными приложениями.</p>
+                </div>
+                <div class="card">
+                    <h3>Разработка логики</h3>
+                    <p>Создаю сложную бизнес-логику, которая делает ваше приложение умнее и эффективнее.</p>
+                </div>
+                <div class="card">
+                    <h3>Архитектура приложений</h3>
+                    <p>Проектирую масштабируемую архитектуру веб-приложений, чтобы они могли расти вместе с вашим бизнесом.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <section id="projects" class="animate">
+            <h2>Мои проекты</h2>
+            <div class="project">
+                <h3>Проект 1</h3>
+                <p>Краткое описание проекта. Это было интересное задание, где я работал с API и базами данных.</p>
+                <a href="https://github.com/your-repo" target="_blank">GitHub репозиторий</a>
+            </div>
+            <div class="project">
+                <h3>Проект 2</h3>
+                <p>Еще один проект, где я разрабатывал архитектуру и логику для веб-приложения.</p>
+                <a href="https://github.com/your-repo" target="_blank">GitHub репозиторий</a>
+            </div>
+            <div class="project">
+                <h3>Проект 3</h3>
+                <p>Еще один проект, где я разрабатывал архитектуру и логику для веб-приложения.</p>
+                <a href="https://github.com/your-repo" target="_blank">GitHub репозиторий</a>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section id="reviews" class="animate">
+            <h2>Отзывы</h2>
+            <div class="review">
+                <h3>Отзыв 1</h3>
+                <p>Александр сделал отличную работу по разработке нашего API. Все было сделано в срок и с высоким качеством.</p>
+                <p class="author">— Иван Иванов, CEO компании "TechSolutions"</p>
+            </div>
+            <div class="review">
+                <h3>Отзыв 2</h3>
+                <p>Очень профессиональный подход к работе. Рекомендую Александра всем, кто ищет опытного backend-разработчика.</p>
+                <p class="author">— Мария Петрова, Project Manager</p>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts" class="animate">
+            <h2>Контакты</h2>
+            <div class="contacts">
+                <ul>
+                    <li>Телефон: <a href="tel:+79991234567">+7 (999) 123-45-67</a></li>
+                    <li>Telegram: <a href="https://t.me/your_username" target="_blank">@your_username</a></li>
+                    <li>GitHub: <a href="https://github.com/your-repo" target="_blank">github.com/your-repo</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2023 Иличкин Александр. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка
+        const links = document.querySelectorAll('header nav a');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const targetId = link.getAttribute('href').substring(1); // Убираем #
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 50, // Смещение для шапки
+                        behavior: 'smooth' // Плавная прокрутка
+                    });
+                }
+            });
+        });
+
+        // Анимация при прокрутке
+        const animateElements = document.querySelectorAll('.animate');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animateElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
